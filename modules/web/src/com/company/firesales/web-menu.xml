@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-firesales" insertBefore="administration" caption="mainMsg://menu_config.application-firesales">
+        <item screen="firesales_Customer.browse" caption="mainMsg://menu_config.firesales_Customer.browse"/>
+        <item screen="firesales_Product.browse" caption="mainMsg://menu_config.firesales_Product.browse"/>
+        <item screen="firesales_Order.browse" caption="mainMsg://menu_config.firesales_Order.browse"/>
+    </menu>
+</menu-config>

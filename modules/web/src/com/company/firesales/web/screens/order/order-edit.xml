@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://orderEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.firesales.web.screens.order">
+    <data>
+        <instance id="orderDc"
+                  class="com.company.firesales.entity.Order">
+            <view extends="_local">
+                <property name="customer" view="_minimal"/>
+                <property name="product" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <collection id="customersDc" class="com.company.firesales.entity.Customer" view="_minimal">
+            <loader id="customersDl">
+                <query>
+                    <![CDATA[select e from firesales_Customer e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="productsDc" class="com.company.firesales.entity.Product" view="_minimal">
+            <loader id="productsDl">
+                <query>
+                    <![CDATA[select e from firesales_Product e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="orderDc">
+            <column width="350px">
+                <lookupPickerField id="customerField" optionsContainer="customersDc" property="customer"/>
+                <textField id="totalField" property="total"/>
+                <lookupPickerField id="productField" optionsContainer="productsDc" property="product"/>
+                <textField id="numberOfItemsField" property="numberOfItems"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
